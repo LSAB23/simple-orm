@@ -1,7 +1,7 @@
 from sqlite3 import connect, Connection, Cursor
-from .settings import create_db
+from .settings import create_db, db_name
 
-def create(name :str ='db') -> tuple[Connection, Cursor]:
+def create(name :str = db_name) -> tuple[Connection, Cursor]:
     if name:
         conn = connect(f'{name}.sqlite3')
         cur = conn.cursor()

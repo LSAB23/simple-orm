@@ -186,7 +186,7 @@ class Model(metaclass=ModelMeta):
     
     def to_dict(self, query, args):
         _result :list= []
-        for result in execute_query(query).fetchall():
+        for result in execute_query(query).fetchall(): # type: ignore
             _result.append(dict(zip(args,result)))
         return _result
     
@@ -277,7 +277,7 @@ class Model(metaclass=ModelMeta):
             # print(_query, 'join')
             self.main_query = _query
             
-            return execute_query(_query).fetchall() 
+            return execute_query(_query).fetchall()  # type: ignore
     def query(self):
         return self.main_query
         
