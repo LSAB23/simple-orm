@@ -11,3 +11,4 @@ MODEL:
         model().filter(user = 'google').delete() deletes user " WHERE user = '% google %'"
         
         model().filter(user = 'google').join() joins if there's a foriegn key  
+    DONT FORGET TO CHANGE THE SETTINGS FILE CREATE DB TO TRUE

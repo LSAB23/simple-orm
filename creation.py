@@ -1,4 +1,5 @@
 from sqlite3 import connect, Connection, Cursor
+from .settings import create_db
 
 def create(name :str ='db') -> tuple[Connection, Cursor]:
     if name:
@@ -8,9 +9,10 @@ def create(name :str ='db') -> tuple[Connection, Cursor]:
 
 
 def execute_query(query):
-    connection, cursor = create()
-    with connection as connection:
-        query = cursor.execute(query)
-        connection.commit()
-    return query
+    if create_db:
+        connection, cursor = create()
+        with connection as connection:
+            query = cursor.execute(query)
+            connection.commit()
+        return query
     

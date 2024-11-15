@@ -1,11 +1,9 @@
-from ast import main
 from functools import lru_cache
 from itertools import zip_longest
-from pyclbr import Class
 from typing import Any
-from fields import  Field, IntField,Char,BooleanField, ForeignKey
-from creation import execute_query
-from error import ValidationError,FieldDoNotExist,MustBeOne,NoForeignKey
+from .fields import  Field, IntField,Char,BooleanField, ForeignKey
+from .creation import execute_query
+from .error import ValidationError,FieldDoNotExist,MustBeOne,NoForeignKey
 
 fields_list = [type(Char()),type(IntField()),type(BooleanField()),type(ForeignKey()) ]
 class ModelMeta(type):
@@ -70,7 +68,7 @@ class Model(metaclass=ModelMeta):
         query :str=f"CREATE TABLE IF NOT EXISTS '{self.name}' ({field_query[:-1]})"
         # print(query, 'migrate query')
         execute_query(query)
-        self.main_query = field_query[:-1]
+        self.main_query = query
 
         return
     
