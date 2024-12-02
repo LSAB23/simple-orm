@@ -1,2 +1,2 @@
 db_name = 'db'
-create_db = False
+create_db = True

@@ -1,6 +1,7 @@
 from fields import  BooleanField, IntField,Char, ForeignKey
 from models import Model
 import unittest
+from settings import create_db
 
 class database1(Model):
     test_int = IntField(max_length=100, primary_key=True)

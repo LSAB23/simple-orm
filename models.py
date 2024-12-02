@@ -1,9 +1,9 @@
 from functools import lru_cache
 from itertools import zip_longest
 from typing import Any
-from .fields import  Field, IntField,Char,BooleanField, ForeignKey
-from .creation import execute_query
-from .error import ValidationError,FieldDoNotExist,MustBeOne,NoForeignKey
+from fields import  Field, IntField,Char,BooleanField, ForeignKey
+from creation import execute_query
+from error import ValidationError,FieldDoNotExist,MustBeOne,NoForeignKey
 
 fields_list = [type(Char()),type(IntField()),type(BooleanField()),type(ForeignKey()) ]
 class ModelMeta(type):

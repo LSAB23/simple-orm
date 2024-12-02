@@ -1,5 +1,5 @@
 from sqlite3 import connect, Connection, Cursor
-from .settings import create_db, db_name
+from settings import create_db, db_name
 
 def create(name :str = db_name) -> tuple[Connection, Cursor]:
     if name:
